@@ -6,3 +6,9 @@ spring:
       enabled: true
 
 instanceInfo: 111
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG

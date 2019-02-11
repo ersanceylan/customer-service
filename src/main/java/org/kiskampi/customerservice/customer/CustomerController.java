@@ -15,6 +15,8 @@ public class CustomerController {
 
     private final CustomerRepository customerRepository;
 
+    private final CustomerSearchClient customerSearchClient;
+
     @GetMapping
     public List<Customer> findAll() {
         return (List<Customer>) customerRepository.findAll();
@@ -22,7 +24,9 @@ public class CustomerController {
 
     @PostMapping
     public Customer save(Customer customer) {
-        return customerRepository.save(customer);
+        customerRepository.save(customer);
+        customerSearchClient.indexCustomer(customer);
+        return customer;
     }
 
 }
