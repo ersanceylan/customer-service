@@ -16,12 +16,12 @@ public class CustomerServiceApplication {
 		SpringApplication.run(CustomerServiceApplication.class, args);
 	}
 
-	@Value("${test}")
-	private String test;
+	@Value("${instanceInfo}")
+	private String instanceInfo;
 
-	@GetMapping("/show-property")
-	public String showPropertySource() {
-		return test;
+	@GetMapping("/instance-info")
+	public String getInstanceInfo() {
+		return instanceInfo;
 	}
 
 }
